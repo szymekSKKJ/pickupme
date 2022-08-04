@@ -1,0 +1,42 @@
+.navigation {
+  width: 100%;
+  height: 60px;
+  background-color: #202f46;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+
+  button {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: unset;
+    outline-width: 0px;
+    transition: 250ms;
+    background-color: #edcfc4;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0px 8px 0px 8px;
+
+    &:hover {
+      background-color: #e7bfb1;
+    }
+
+    i {
+      font-size: 24px;
+      color: #202f46;
+    }
+  }
+
+  .change-profile-image-button {
+    i {
+      font-size: 30px;
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.create-user {
+  width: auto;
+  height: auto;
+  background-color: #2d4262;
+  padding-top: 100px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+
+  #create-user-form {
+    width: auto;
+    max-width: 350px;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: 500ms;
+
+    @media screen and (max-width: 1480px) {
+      margin-left: 100px;
+    }
+
+    @media screen and (max-width: 1280px) {
+      margin-left: 150px;
+    }
+
+    .input-wrapper {
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      input {
+        width: 350px;
+        height: 50px;
+        font-size: 24px;
+        border: unset;
+        outline-width: 0px;
+        padding: 12px 48px 12px 24px;
+        transition: 500ms;
+        border-radius: 1000px;
+        margin-bottom: 20px;
+        order: 2;
+
+        &::placeholder {
+          transition: 500ms;
+        }
+
+        &:focus {
+          &::placeholder {
+            transform: translateX(-100%);
+          }
+
+          + label {
+            transform: translateX(0px);
+          }
+        }
+
+        &:valid {
+          &::placeholder {
+            transform: translateX(-100%);
+          }
+
+          + label {
+            transform: translateX(0px);
+          }
+        }
+      }
+
+      label {
+        font-size: 20px;
+        padding-left: 24px;
+        transform: translateX(-75%);
+        transition: 500ms;
+        color: #e1ae9d;
+        order: 1;
+      }
+
+      i {
+        position: absolute;
+        right: 12px;
+        top: 33px;
+        font-size: 32px;
+        --fa-primary-color: white;
+        --fa-secondary-color: #e1ae9d;
+        --fa-secondary-opacity: 1;
+        cursor: pointer;
+        transition: all 250ms;
+
+        &:hover {
+          --fa-secondary-color: #e7beb1;
+
+          + span {
+            transform: translateX(0%);
+          }
+        }
+      }
+
+      span {
+        width: 300px;
+        height: 50px;
+        background-color: #e1ae9d;
+        color: white;
+        white-space: pre-wrap;
+        position: absolute;
+        text-align: center;
+        padding: 4px 12px 4px 12px;
+        border-radius: 100px;
+        left: 0px;
+        top: 24px;
+        font-size: 16px;
+        transition: 500ms;
+        transform: translateX(-100%);
+      }
+    }
+
+    button {
+      margin-top: 50px;
+    }
+  }
+}

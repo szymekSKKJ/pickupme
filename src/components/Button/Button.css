@@ -1,0 +1,15 @@
+.main-button {
+  width: auto;
+  height: auto;
+  background-color: #e1ae9d;
+  font-size: 24px;
+  padding: 12px 24px 12px 24px;
+  cursor: pointer;
+  border: unset;
+  color: white;
+  border-radius: 1000px;
+  transition: 250ms;
+}
+.main-button:hover {
+  background-color: #e7beb1;
+}/*# sourceMappingURL=Button.css.map */

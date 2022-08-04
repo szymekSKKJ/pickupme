@@ -1,0 +1,96 @@
+.login-user {
+  width: auto;
+  height: auto;
+  background-color: #2d4262;
+  padding-top: 150px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+}
+.login-user #login-user-form {
+  width: auto;
+  max-width: 350px;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: 500ms;
+}
+@media screen and (max-width: 1480px) {
+  .login-user #login-user-form {
+    margin-left: -100px;
+    margin-right: 100px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .login-user #login-user-form {
+    margin-left: -150px;
+    margin-right: 150px;
+  }
+}
+.login-user #login-user-form .input-wrapper {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+.login-user #login-user-form .input-wrapper input {
+  width: 350px;
+  height: 50px;
+  font-size: 24px;
+  border: unset;
+  outline-width: 0px;
+  padding: 12px 24px 12px 24px;
+  transition: 500ms;
+  border-radius: 1000px;
+  margin-bottom: 20px;
+  order: 2;
+}
+.login-user #login-user-form .input-wrapper input::-moz-placeholder {
+  -moz-transition: 500ms;
+  transition: 500ms;
+}
+.login-user #login-user-form .input-wrapper input:-ms-input-placeholder {
+  -ms-transition: 500ms;
+  transition: 500ms;
+}
+.login-user #login-user-form .input-wrapper input::placeholder {
+  transition: 500ms;
+}
+.login-user #login-user-form .input-wrapper input:focus::-moz-placeholder {
+  transform: translateX(-100%);
+}
+.login-user #login-user-form .input-wrapper input:focus:-ms-input-placeholder {
+  transform: translateX(-100%);
+}
+.login-user #login-user-form .input-wrapper input:focus::placeholder {
+  transform: translateX(-100%);
+}
+.login-user #login-user-form .input-wrapper input:focus + label {
+  transform: translateX(0px);
+}
+.login-user #login-user-form .input-wrapper input:valid::-moz-placeholder {
+  transform: translateX(-100%);
+}
+.login-user #login-user-form .input-wrapper input:valid:-ms-input-placeholder {
+  transform: translateX(-100%);
+}
+.login-user #login-user-form .input-wrapper input:valid::placeholder {
+  transform: translateX(-100%);
+}
+.login-user #login-user-form .input-wrapper input:valid + label {
+  transform: translateX(0px);
+}
+.login-user #login-user-form .input-wrapper label {
+  font-size: 20px;
+  padding-left: 24px;
+  transform: translateX(-75%);
+  transition: 500ms;
+  color: #e1ae9d;
+  order: 1;
+}
+.login-user #login-user-form button {
+  margin-top: 50px;
+}/*# sourceMappingURL=LoginUser.css.map */

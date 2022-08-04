@@ -1,0 +1,128 @@
+.create-user {
+  width: auto;
+  height: auto;
+  background-color: #2d4262;
+  padding-top: 100px;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+}
+.create-user #create-user-form {
+  width: auto;
+  max-width: 350px;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: 500ms;
+}
+@media screen and (max-width: 1480px) {
+  .create-user #create-user-form {
+    margin-left: 100px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .create-user #create-user-form {
+    margin-left: 150px;
+  }
+}
+.create-user #create-user-form .input-wrapper {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.create-user #create-user-form .input-wrapper input {
+  width: 350px;
+  height: 50px;
+  font-size: 24px;
+  border: unset;
+  outline-width: 0px;
+  padding: 12px 48px 12px 24px;
+  transition: 500ms;
+  border-radius: 1000px;
+  margin-bottom: 20px;
+  order: 2;
+}
+.create-user #create-user-form .input-wrapper input::-moz-placeholder {
+  -moz-transition: 500ms;
+  transition: 500ms;
+}
+.create-user #create-user-form .input-wrapper input:-ms-input-placeholder {
+  -ms-transition: 500ms;
+  transition: 500ms;
+}
+.create-user #create-user-form .input-wrapper input::placeholder {
+  transition: 500ms;
+}
+.create-user #create-user-form .input-wrapper input:focus::-moz-placeholder {
+  transform: translateX(-100%);
+}
+.create-user #create-user-form .input-wrapper input:focus:-ms-input-placeholder {
+  transform: translateX(-100%);
+}
+.create-user #create-user-form .input-wrapper input:focus::placeholder {
+  transform: translateX(-100%);
+}
+.create-user #create-user-form .input-wrapper input:focus + label {
+  transform: translateX(0px);
+}
+.create-user #create-user-form .input-wrapper input:valid::-moz-placeholder {
+  transform: translateX(-100%);
+}
+.create-user #create-user-form .input-wrapper input:valid:-ms-input-placeholder {
+  transform: translateX(-100%);
+}
+.create-user #create-user-form .input-wrapper input:valid::placeholder {
+  transform: translateX(-100%);
+}
+.create-user #create-user-form .input-wrapper input:valid + label {
+  transform: translateX(0px);
+}
+.create-user #create-user-form .input-wrapper label {
+  font-size: 20px;
+  padding-left: 24px;
+  transform: translateX(-75%);
+  transition: 500ms;
+  color: #e1ae9d;
+  order: 1;
+}
+.create-user #create-user-form .input-wrapper i {
+  position: absolute;
+  right: 12px;
+  top: 33px;
+  font-size: 32px;
+  --fa-primary-color: white;
+  --fa-secondary-color: #e1ae9d;
+  --fa-secondary-opacity: 1;
+  cursor: pointer;
+  transition: all 250ms;
+}
+.create-user #create-user-form .input-wrapper i:hover {
+  --fa-secondary-color: #e7beb1;
+}
+.create-user #create-user-form .input-wrapper i:hover + span {
+  transform: translateX(0%);
+}
+.create-user #create-user-form .input-wrapper span {
+  width: 300px;
+  height: 50px;
+  background-color: #e1ae9d;
+  color: white;
+  white-space: pre-wrap;
+  position: absolute;
+  text-align: center;
+  padding: 4px 12px 4px 12px;
+  border-radius: 100px;
+  left: 0px;
+  top: 24px;
+  font-size: 16px;
+  transition: 500ms;
+  transform: translateX(-100%);
+}
+.create-user #create-user-form button {
+  margin-top: 50px;
+}/*# sourceMappingURL=CreateUser.css.map */

@@ -1,0 +1,119 @@
+.home {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  padding-top: 60px;
+}
+.home ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.home ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.home ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1000px;
+}
+.home ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.home .picked-me-users {
+  width: auto;
+  height: auto;
+  max-height: calc(100vh - 60px);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: auto;
+}
+.home .picked-me-users .user {
+  width: 400px;
+  height: 150px;
+  background-color: #202f46;
+  display: flex;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 12px;
+  cursor: pointer;
+  transition: 250ms;
+}
+.home .picked-me-users .user:hover {
+  background-color: #283c57;
+}
+.home .picked-me-users .user:hover .username-and-message-wrapper .username {
+  background-color: #283c57;
+}
+.home .picked-me-users .user img {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+}
+.home .picked-me-users .user i {
+  width: auto;
+  height: 100%;
+  background-color: #f9efeb;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+  color: #e9cfc4;
+}
+.home .picked-me-users .user ::-webkit-scrollbar {
+  width: 6px;
+}
+.home .picked-me-users .user ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.home .picked-me-users .user ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1000px;
+}
+.home .picked-me-users .user ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.home .picked-me-users .user .username-and-message-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  padding: 0px 16px 8px 16px;
+  color: white;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+  pointer-events: none;
+}
+.home .picked-me-users .user .username-and-message-wrapper .username {
+  background-color: #202f46;
+  font-size: 22px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  transition: 250ms;
+}
+.home .picked-me-users .user .username-and-message-wrapper .message {
+  margin-left: 8px;
+  font-size: 16px;
+  line-height: 1;
+  word-wrap: break-word;
+}
+.home .picked-me-users .empty-alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}/*# sourceMappingURL=Home.css.map */

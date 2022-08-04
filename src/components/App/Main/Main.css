@@ -1,0 +1,63 @@
+.main {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  overflow: hidden;
+}
+.main .main-content {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  transition: 500ms;
+  transform: translateX(-350px);
+}
+.main .main-content .main-content-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: #2d4262;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 200px 0px 400px 0px;
+  flex-shrink: 0;
+}
+.main .main-content .main-content-wrapper h1 {
+  font-size: 50px;
+  margin-bottom: 16px;
+}
+.main .main-content .main-content-wrapper > p {
+  font-size: 22px;
+  margin-bottom: 100px;
+}
+@media screen and (max-width: 1200px) {
+  .main .main-content .main-content-wrapper h1 {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  .main .main-content .main-content-wrapper > p {
+    width: 500px;
+    text-align: center;
+    background-color: transparent;
+    font-size: 18px;
+    margin-bottom: 100px;
+    white-space: pre-wrap;
+  }
+}
+.main .main-content .main-content-wrapper .buttons-wrapper {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .main-content .main-content-wrapper .buttons-wrapper button {
+  width: 200px;
+  margin: 0px 20px 0px 20px;
+}
+.main .main-content .main-content-wrapper .buttons-wrapper p {
+  font-size: 18px;
+}/*# sourceMappingURL=Main.css.map */

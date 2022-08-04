@@ -1,0 +1,132 @@
+.pick-user {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+
+  .pick-user-profile-image-and-username {
+    width: 256px;
+    height: 256px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    margin-bottom: 75px;
+    flex-direction: column;
+
+    @media screen and (max-width: 425px) {
+      width: 200px;
+      height: 200px;
+    }
+
+    i {
+      width: 100%;
+      height: 100%;
+      background-color: #f9efeb;
+      aspect-ratio: 1/1;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 125px;
+      color: #e9cfc4;
+      margin-bottom: 20px;
+      border-radius: 100%;
+      filter: drop-shadow(0px 0px 12px black);
+      flex-shrink: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 100%;
+      filter: drop-shadow(0px 0px 12px black);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 32px;
+      color: white;
+    }
+  }
+
+  #pick-user-form {
+    width: auto;
+    max-width: 350px;
+    height: auto;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: 500ms;
+
+    .input-wrapper {
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+
+      textarea {
+        max-width: 350px;
+        min-width: 350px;
+        height: 52px;
+        min-height: 50px;
+        font-size: 24px;
+        border: unset;
+        outline-width: 0px;
+        padding: 12px 24px 12px 24px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        order: 2;
+        text-align: center;
+        line-height: 1;
+
+        @media screen and (max-width: 425px) {
+          max-width: 300px;
+          min-width: 300px;
+        }
+
+        &::placeholder {
+          transition: 500ms;
+        }
+
+        &:focus {
+          text-align: left;
+          &::placeholder {
+            transform: translateX(-100%);
+          }
+
+          + label {
+            transform: translateX(0px);
+          }
+        }
+
+        &:valid {
+          &::placeholder {
+            transform: translateX(-100%);
+          }
+
+          + label {
+            transform: translateX(0px);
+          }
+        }
+      }
+
+      label {
+        font-size: 20px;
+        padding-left: 24px;
+        transform: translateX(-75%);
+        transition: 500ms;
+        color: #e1ae9d;
+        order: 1;
+      }
+    }
+  }
+}

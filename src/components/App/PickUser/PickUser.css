@@ -1,0 +1,139 @@
+.pick-user {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+}
+.pick-user .pick-user-profile-image-and-username {
+  width: 256px;
+  height: 256px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  margin-bottom: 75px;
+  flex-direction: column;
+}
+@media screen and (max-width: 425px) {
+  .pick-user .pick-user-profile-image-and-username {
+    width: 200px;
+    height: 200px;
+  }
+}
+.pick-user .pick-user-profile-image-and-username i {
+  width: 100%;
+  height: 100%;
+  background-color: #f9efeb;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 125px;
+  color: #e9cfc4;
+  margin-bottom: 20px;
+  border-radius: 100%;
+  filter: drop-shadow(0px 0px 12px black);
+  flex-shrink: 0;
+}
+.pick-user .pick-user-profile-image-and-username img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  filter: drop-shadow(0px 0px 12px black);
+  margin-bottom: 20px;
+}
+.pick-user .pick-user-profile-image-and-username p {
+  font-size: 32px;
+  color: white;
+}
+.pick-user #pick-user-form {
+  width: auto;
+  max-width: 350px;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: 500ms;
+}
+.pick-user #pick-user-form .input-wrapper {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+.pick-user #pick-user-form .input-wrapper textarea {
+  max-width: 350px;
+  min-width: 350px;
+  height: 52px;
+  min-height: 50px;
+  font-size: 24px;
+  border: unset;
+  outline-width: 0px;
+  padding: 12px 24px 12px 24px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  order: 2;
+  text-align: center;
+  line-height: 1;
+}
+@media screen and (max-width: 425px) {
+  .pick-user #pick-user-form .input-wrapper textarea {
+    max-width: 300px;
+    min-width: 300px;
+  }
+}
+.pick-user #pick-user-form .input-wrapper textarea::-moz-placeholder {
+  -moz-transition: 500ms;
+  transition: 500ms;
+}
+.pick-user #pick-user-form .input-wrapper textarea:-ms-input-placeholder {
+  -ms-transition: 500ms;
+  transition: 500ms;
+}
+.pick-user #pick-user-form .input-wrapper textarea::placeholder {
+  transition: 500ms;
+}
+.pick-user #pick-user-form .input-wrapper textarea:focus {
+  text-align: left;
+}
+.pick-user #pick-user-form .input-wrapper textarea:focus::-moz-placeholder {
+  transform: translateX(-100%);
+}
+.pick-user #pick-user-form .input-wrapper textarea:focus:-ms-input-placeholder {
+  transform: translateX(-100%);
+}
+.pick-user #pick-user-form .input-wrapper textarea:focus::placeholder {
+  transform: translateX(-100%);
+}
+.pick-user #pick-user-form .input-wrapper textarea:focus + label {
+  transform: translateX(0px);
+}
+.pick-user #pick-user-form .input-wrapper textarea:valid::-moz-placeholder {
+  transform: translateX(-100%);
+}
+.pick-user #pick-user-form .input-wrapper textarea:valid:-ms-input-placeholder {
+  transform: translateX(-100%);
+}
+.pick-user #pick-user-form .input-wrapper textarea:valid::placeholder {
+  transform: translateX(-100%);
+}
+.pick-user #pick-user-form .input-wrapper textarea:valid + label {
+  transform: translateX(0px);
+}
+.pick-user #pick-user-form .input-wrapper label {
+  font-size: 20px;
+  padding-left: 24px;
+  transform: translateX(-75%);
+  transition: 500ms;
+  color: #e1ae9d;
+  order: 1;
+}/*# sourceMappingURL=PickUser.css.map */
