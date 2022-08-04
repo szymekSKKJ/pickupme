@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Main from "./Main/Main";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
@@ -12,7 +12,16 @@ import LoginOrRegisterPage from "./LoginOrRegisterPage/LoginOrRegisterPage";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [notificationPermissionStatus, setNotificationPermissionStatus] = useState(null);
   const homeIdFromUrl = new URL(window.location.href).searchParams.get("home"); //It is this same as user id
+
+  const askUserForNotificationPermission = () => {
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission().then((result) => {
+        setNotificationPermissionStatus(result);
+      });
+    }
+  };
 
   const getCurrentSignInUser = () => {
     const auth = getAuth();
@@ -37,6 +46,10 @@ const App = () => {
   };
 
   currentUser === undefined && getCurrentSignInUser();
+
+  useEffect(() => {
+    askUserForNotificationPermission();
+  });
 
   return (
     <div className="app">
