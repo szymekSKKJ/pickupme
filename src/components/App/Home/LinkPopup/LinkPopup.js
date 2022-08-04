@@ -21,7 +21,7 @@ const LinkPopup = ({ currentUser, setIsLinkPopupOpen }) => {
       <div className="content">
         <h1>Hurrra!</h1>
         <p> O to Twój link do pokoju:</p>
-        <p className="home-link">{`https://pickMe.netlify.app/?home=${currentUser.id}`}</p>
+        <p className="home-link">{`https://pickupme.netlify.app/?home=${currentUser.id}`}</p>
         <p>Ty jako zarządca swojego pokoju wchodzisz bez podawania tego linku. Wystarczy, że jesteś zalogowany na stronie głównej.</p>
         <p>Chyba, że chcesz zaczepić samego siebie :)</p>
         <Button action={() => setFirstLogin()}>Miłej zabawy!</Button>
