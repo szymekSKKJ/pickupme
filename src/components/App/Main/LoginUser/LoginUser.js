@@ -16,12 +16,14 @@ const LoginUser = ({ setCurrentUser }) => {
 
     querySnapshot.forEach((doc) => {
       if (!isUserFound) {
-        const { email, username, pickedMeUsers } = doc.data();
+        const { email, username, pickedMeUsers, profileImage } = doc.data();
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, passwordInputElement.value)
           .then((userCredential) => {
             const user = userCredential.user;
             setCurrentUser({
+              id: user.uid,
+              profileImage: profileImage,
               username: username,
               pickedMeUsers: pickedMeUsers,
               email: email,
@@ -30,6 +32,7 @@ const LoginUser = ({ setCurrentUser }) => {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(error);
             createNotification(errorCode, true);
           });
         isUserFound = true;

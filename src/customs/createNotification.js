@@ -14,7 +14,7 @@ const createNotification = (content, error = false) => {
       setTimeout(() => {
         notificationElement.remove();
       }, 500);
-    }, 1);
+    }, 10);
   }, 3000);
 };
 

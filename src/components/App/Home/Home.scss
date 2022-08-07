@@ -37,7 +37,8 @@
     .user {
       width: 400px;
       height: 150px;
-      background-color: #202f46;
+      // background-color: #202f46;
+      background-color: #2d3439;
       display: flex;
       padding: 16px;
       border-radius: 4px;
@@ -46,10 +47,10 @@
       transition: 250ms;
 
       &:hover {
-        background-color: #283c57;
+        background-color: #384147;
 
         .username-and-message-wrapper .username {
-          background-color: #283c57;
+          background-color: #384147;
         }
       }
 
@@ -102,7 +103,7 @@
         pointer-events: none;
 
         .username {
-          background-color: #202f46;
+          background-color: #2d3439;
           font-size: 22px;
           margin-bottom: 4px;
           font-weight: 600;

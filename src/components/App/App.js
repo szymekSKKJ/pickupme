@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Main from "./Main/Main";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../initializeFirebase";
+import Main from "./Main/Main";
 import Home from "./Home/Home";
 import CreateUser from "./Main/CreateUser/CreateUser";
 import LoginUser from "./Main/LoginUser/LoginUser";
 import PickUser from "./PickUser/PickUser";
-import LoginOrRegisterPage from "./LoginOrRegisterPage/LoginOrRegisterPage";
+import LoginOrSigninPage from "./LoginOrSigninPage/LoginOrSigninPage";
+import Loading from "./Loading/Loading";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
   const [notificationPermissionStatus, setNotificationPermissionStatus] = useState(null);
+  const [isLoadingOpen, setIsLoadingOpen] = useState(true);
   const homeIdFromUrl = new URL(window.location.href).searchParams.get("home"); //It is this same as user id
 
   const askUserForNotificationPermission = () => {
@@ -40,7 +42,7 @@ const App = () => {
           });
         });
       } else {
-        setCurrentUser(undefined);
+        setCurrentUser(null);
       }
     });
   };
@@ -53,17 +55,20 @@ const App = () => {
 
   return (
     <div className="app">
-      {currentUser === undefined ? (
-        homeIdFromUrl === null ? (
-          <Main setCurrentUser={setCurrentUser}></Main>
+      {isLoadingOpen && <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={currentUser} closeImmediately={true}></Loading>}
+      {isLoadingOpen === false ? (
+        currentUser === null ? (
+          homeIdFromUrl === null ? (
+            <Main setCurrentUser={setCurrentUser}></Main>
+          ) : (
+            <LoginOrSigninPage></LoginOrSigninPage>
+          )
+        ) : homeIdFromUrl === null ? (
+          <Home currentUser={currentUser} setCurrentUser={setCurrentUser}></Home>
         ) : (
-          <LoginOrRegisterPage></LoginOrRegisterPage>
+          <PickUser homeIdFromUrl={homeIdFromUrl} currentUser={currentUser}></PickUser>
         )
-      ) : homeIdFromUrl === null ? (
-        <Home currentUser={currentUser} setCurrentUser={setCurrentUser}></Home>
-      ) : (
-        <PickUser currentUser={currentUser} homeIdFromUrl={homeIdFromUrl}></PickUser>
-      )}
+      ) : null}
     </div>
   );
 };

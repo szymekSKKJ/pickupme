@@ -4,9 +4,11 @@ import { db } from "../../../initializeFirebase";
 import "./PickUser.css";
 import { useEffect, useState } from "react";
 import createNotification from "../../../customs/createNotification";
+import Loading from "../Loading/Loading";
 
 const PickUser = ({ homeIdFromUrl, currentUser }) => {
   const [isUserExist, setIsUserExist] = useState(undefined);
+  const [isLoadingOpen, setIsLoadingOpen] = useState(true);
   const currentPickUpUser = isUserExist;
 
   const isEmpty = (str) => !str.trim().length;
@@ -48,6 +50,7 @@ const PickUser = ({ homeIdFromUrl, currentUser }) => {
 
   return (
     <div className="pick-user">
+      <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={isUserExist}></Loading>
       {isUserExist !== undefined && isUserExist !== false ? (
         <>
           <div className="pick-user-profile-image-and-username">

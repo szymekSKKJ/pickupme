@@ -4,6 +4,7 @@ import { db } from "../../../../initializeFirebase";
 import { collection, setDoc, doc, getDocs, query, where } from "firebase/firestore";
 import createNotification from "../../../../customs/createNotification";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import signOutUser from "../../../../customs/signOutUser";
 
 const CreateUser = () => {
   const isEmpty = (str) => !str.trim().length;

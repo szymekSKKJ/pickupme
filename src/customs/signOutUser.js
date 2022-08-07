@@ -9,6 +9,7 @@ const signOutUser = (setCurrentUser) => {
       createNotification("Zostałeś wylogowany");
     })
     .catch((error) => {
+      console.log(error);
       createNotification("Wystąpił nieoczekiwany błąd. Przepraszamy", "error");
     });
 };

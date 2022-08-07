@@ -4,9 +4,11 @@ import { db } from "../../../initializeFirebase";
 import { useEffect, useState } from "react";
 import LinkPopup from "./LinkPopup/LinkPopup";
 import Navigation from "./Navigation/Navigation";
+import Loading from "../Loading/Loading";
 
 const Home = ({ currentUser, setCurrentUser }) => {
   const [pickedMeUsers, setPickedMeUsers] = useState(null);
+  const [isLoadingOpen, setIsLoadingOpen] = useState(true);
   const [isLinkPopupOpen, setIsLinkPopupOpen] = useState(localStorage.getItem("firstLogin") === null ? true : false);
 
   const removeNotification = async (notificationElement, index) => {
@@ -70,6 +72,7 @@ const Home = ({ currentUser, setCurrentUser }) => {
 
   return (
     <>
+      {isLoadingOpen && <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={pickedMeUsers}></Loading>}
       <Navigation setCurrentUser={setCurrentUser} setIsLinkPopupOpen={setIsLinkPopupOpen}></Navigation>
       <div className="home">
         {isLinkPopupOpen ? <LinkPopup currentUser={currentUser} setIsLinkPopupOpen={setIsLinkPopupOpen}></LinkPopup> : null}
