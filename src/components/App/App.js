@@ -12,7 +12,7 @@ import LoginOrSigninPage from "./LoginOrSigninPage/LoginOrSigninPage";
 import Loading from "./Loading/Loading";
 
 const App = () => {
-  const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentUser, setCurrentUser] = useState(null);
   const [notificationPermissionStatus, setNotificationPermissionStatus] = useState(null);
   const [isLoadingOpen, setIsLoadingOpen] = useState(true);
   const homeIdFromUrl = new URL(window.location.href).searchParams.get("home"); //It is this same as user id
@@ -42,12 +42,12 @@ const App = () => {
           });
         });
       } else {
-        setCurrentUser(null);
+        setCurrentUser(undefined);
       }
     });
   };
 
-  currentUser === undefined && getCurrentSignInUser();
+  currentUser === null && getCurrentSignInUser();
 
   useEffect(() => {
     askUserForNotificationPermission();
@@ -55,16 +55,18 @@ const App = () => {
 
   return (
     <div className="app">
-      {isLoadingOpen && <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={currentUser} closeImmediately={true}></Loading>}
-      {isLoadingOpen === false ? (
-        currentUser === null ? (
+      {isLoadingOpen && (
+        <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={currentUser} closeImmediately={currentUser !== undefined ? true : false}></Loading>
+      )}
+      {isLoadingOpen === false || currentUser === undefined ? (
+        currentUser === undefined ? (
           homeIdFromUrl === null ? (
             <Main setCurrentUser={setCurrentUser}></Main>
           ) : (
             <LoginOrSigninPage></LoginOrSigninPage>
           )
         ) : homeIdFromUrl === null ? (
-          <Home currentUser={currentUser} setCurrentUser={setCurrentUser}></Home>
+          <Home setIsLoadingOpenFromAppComponent={setIsLoadingOpen} currentUser={currentUser} setCurrentUser={setCurrentUser}></Home>
         ) : (
           <PickUser homeIdFromUrl={homeIdFromUrl} currentUser={currentUser}></PickUser>
         )

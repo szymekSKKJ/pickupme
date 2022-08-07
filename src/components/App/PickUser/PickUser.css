@@ -132,8 +132,9 @@
 .pick-user #pick-user-form .input-wrapper label {
   font-size: 20px;
   padding-left: 24px;
+  margin-bottom: 5px;
   transform: translateX(-75%);
   transition: 500ms;
-  color: #e1ae9d;
+  color: #a385e0;
   order: 1;
 }/*# sourceMappingURL=PickUser.css.map */

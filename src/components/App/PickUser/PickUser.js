@@ -50,7 +50,7 @@ const PickUser = ({ homeIdFromUrl, currentUser }) => {
 
   return (
     <div className="pick-user">
-      <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={isUserExist}></Loading>
+      {isLoadingOpen && <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={isUserExist}></Loading>}
       {isUserExist !== undefined && isUserExist !== false ? (
         <>
           <div className="pick-user-profile-image-and-username">

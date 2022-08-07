@@ -1,7 +1,7 @@
 .create-user {
   width: auto;
   height: auto;
-  background-color: #2d4262;
+  background-color: #22272b;
   padding-top: 100px;
   white-space: nowrap;
   display: flex;
@@ -87,22 +87,23 @@
   padding-left: 24px;
   transform: translateX(-75%);
   transition: 500ms;
-  color: #e1ae9d;
+  margin-bottom: 5px;
+  color: #a385e0;
   order: 1;
 }
 .create-user #create-user-form .input-wrapper i {
   position: absolute;
   right: 12px;
-  top: 33px;
+  top: 38px;
   font-size: 32px;
   --fa-primary-color: white;
-  --fa-secondary-color: #e1ae9d;
+  --fa-secondary-color: #855dd5;
   --fa-secondary-opacity: 1;
   cursor: pointer;
   transition: all 250ms;
 }
 .create-user #create-user-form .input-wrapper i:hover {
-  --fa-secondary-color: #e7beb1;
+  --fa-secondary-color: #9471da;
 }
 .create-user #create-user-form .input-wrapper i:hover + span {
   transform: translateX(0%);
@@ -110,7 +111,7 @@
 .create-user #create-user-form .input-wrapper span {
   width: 300px;
   height: 50px;
-  background-color: #e1ae9d;
+  background-color: #9471da;
   color: white;
   white-space: pre-wrap;
   position: absolute;
@@ -118,7 +119,7 @@
   padding: 4px 12px 4px 12px;
   border-radius: 100px;
   left: 0px;
-  top: 24px;
+  top: 29px;
   font-size: 16px;
   transition: 500ms;
   transform: translateX(-100%);

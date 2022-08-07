@@ -1,7 +1,7 @@
 .login-user {
   width: auto;
   height: auto;
-  background-color: #2d4262;
+  background-color: #22272b;
   padding-top: 150px;
   white-space: nowrap;
   display: flex;
@@ -76,7 +76,8 @@
         padding-left: 24px;
         transform: translateX(-75%);
         transition: 500ms;
-        color: #e1ae9d;
+        margin-bottom: 5px;
+        color: #a385e0;
         order: 1;
       }
     }

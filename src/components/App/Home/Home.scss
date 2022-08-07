@@ -64,14 +64,14 @@
       i {
         width: auto;
         height: 100%;
-        background-color: #f9efeb;
+        background-color: #855dd5;
+        color: #a385e0;
         aspect-ratio: 1/1;
         pointer-events: none;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 75px;
-        color: #e9cfc4;
       }
 
       ::-webkit-scrollbar {
@@ -129,7 +129,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white;
+      color: #657581;
       font-size: 24px;
       text-align: center;
     }

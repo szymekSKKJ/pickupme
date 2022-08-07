@@ -3,10 +3,9 @@ import "./Loading.css";
 
 const Loading = ({ valueToWait, setIsLoadingOpen, closeImmediately = false }) => {
   const loadingRef = useRef(undefined);
-  const valueToWaitConverted = valueToWait === undefined ? null : valueToWait === null ? null : valueToWait;
   const displayOffLoading = () => {
     const loadingElement = loadingRef.current;
-    if (valueToWaitConverted !== null) {
+    if (valueToWait !== null) {
       closeImmediately
         ? setIsLoadingOpen(false)
         : setTimeout(() => {

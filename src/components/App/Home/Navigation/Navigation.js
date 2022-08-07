@@ -1,7 +1,7 @@
 import "./Navigation.css";
 import signOutUser from "../../../../customs/signOutUser";
 
-const Navigation = ({ setIsLinkPopupOpen, setCurrentUser }) => {
+const Navigation = ({ setIsLinkPopupOpen, setCurrentUser, setIsLoadingOpenFromAppComponent }) => {
   const openLinkPopup = () => {
     setIsLinkPopupOpen(true);
   };
@@ -14,7 +14,13 @@ const Navigation = ({ setIsLinkPopupOpen, setCurrentUser }) => {
       <button className="link-button" onClick={() => openLinkPopup()} title="Link do zaczepek">
         <i className="fa-solid fa-link"></i>
       </button>
-      <button className="logout-button" onClick={() => signOutUser(setCurrentUser)} title="Wyloguj się">
+      <button
+        className="logout-button"
+        onClick={() => {
+          setIsLoadingOpenFromAppComponent(true);
+          signOutUser(setCurrentUser);
+        }}
+        title="Wyloguj się">
         <i className="fa-solid fa-arrow-right-from-bracket"></i>
       </button>
     </div>
