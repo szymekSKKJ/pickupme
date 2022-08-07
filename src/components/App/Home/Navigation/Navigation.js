@@ -8,6 +8,9 @@ const Navigation = ({ setIsLinkPopupOpen, setCurrentUser, setIsLoadingOpenFromAp
 
   return (
     <div className="navigation">
+      <button className="home-button">
+        <i className="fa-solid fa-house-chimney"></i>
+      </button>
       <button className="change-profile-image-button" title="Zmień zdjęcie profilowe">
         <i className="fa-solid fa-image-polaroid-user"></i>
       </button>

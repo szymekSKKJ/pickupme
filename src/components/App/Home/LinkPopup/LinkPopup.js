@@ -17,8 +17,8 @@ const LinkPopup = ({ currentUser, setIsLinkPopupOpen }) => {
   };
 
   return (
-    <div className="link-popup">
-      <div className="content">
+    <div className="link-popup" onClick={() => setFirstLogin()}>
+      <div className="content" onClick={(event) => event.stopPropagation()}>
         <h1>Hurrra!</h1>
         <p> O to Twój link do pokoju:</p>
         <p className="home-link">{`https://pickupme.netlify.app/?home=${currentUser.id}`}</p>

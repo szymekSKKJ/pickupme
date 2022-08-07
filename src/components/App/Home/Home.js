@@ -14,8 +14,9 @@ const Home = ({ currentUser, setCurrentUser, setIsLoadingOpenFromAppComponent })
   const removeNotification = async (notificationElement, index) => {
     const { pickedMeUsers: pickedMeUsersData } = currentUser;
 
-    pickedMeUsersData.splice(index, 1);
-    setPickedMeUsers(pickedMeUsersData);
+    pickedMeUsersData.splice(index, 1); // For firebase data
+    pickedMeUsers.splice(index, 1); // For component
+    setPickedMeUsers(pickedMeUsers);
 
     await updateDoc(doc(db, "users", currentUser.id), {
       pickedMeUsers: pickedMeUsersData,
@@ -72,13 +73,13 @@ const Home = ({ currentUser, setCurrentUser, setIsLoadingOpenFromAppComponent })
 
   return (
     <>
+      {isLinkPopupOpen && <LinkPopup currentUser={currentUser} setIsLinkPopupOpen={setIsLinkPopupOpen}></LinkPopup>}
       {isLoadingOpen && <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={pickedMeUsers}></Loading>}
       <Navigation
         setIsLoadingOpenFromAppComponent={setIsLoadingOpenFromAppComponent}
         setCurrentUser={setCurrentUser}
         setIsLinkPopupOpen={setIsLinkPopupOpen}></Navigation>
       <div className="home">
-        {isLinkPopupOpen ? <LinkPopup currentUser={currentUser} setIsLinkPopupOpen={setIsLinkPopupOpen}></LinkPopup> : null}
         <div className="picked-me-users">
           {pickedMeUsers !== null && pickedMeUsers.length > 0 ? (
             pickedMeUsers.map((user, index) => {
