@@ -30,6 +30,7 @@
 .navigation button i {
   font-size: 24px;
   color: #2d3439;
+  pointer-events: none;
 }
 .navigation .change-profile-image-button i {
   font-size: 30px;

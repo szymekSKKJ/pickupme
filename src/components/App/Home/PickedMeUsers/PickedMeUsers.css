@@ -1,0 +1,117 @@
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1000px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.picked-me-users {
+  width: auto;
+  height: auto;
+  max-height: calc(100vh - 60px);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: auto;
+}
+.picked-me-users .user {
+  width: 400px;
+  height: 150px;
+  background-color: #2d3439;
+  display: flex;
+  padding: 16px;
+  border-radius: 4px;
+  margin: 12px;
+  cursor: pointer;
+  transition: 250ms;
+}
+.picked-me-users .user:hover {
+  background-color: #384147;
+}
+.picked-me-users .user:hover .username-and-message-wrapper .username {
+  background-color: #384147;
+}
+.picked-me-users .user img {
+  width: auto;
+  height: 100%;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+}
+.picked-me-users .user i {
+  width: auto;
+  height: 100%;
+  background-color: #855dd5;
+  color: #a385e0;
+  aspect-ratio: 1/1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 75px;
+}
+.picked-me-users .user ::-webkit-scrollbar {
+  width: 6px;
+}
+.picked-me-users .user ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.picked-me-users .user ::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 1000px;
+}
+.picked-me-users .user ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.picked-me-users .user .username-and-message-wrapper {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  padding: 0px 16px 8px 16px;
+  color: white;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+  pointer-events: none;
+}
+.picked-me-users .user .username-and-message-wrapper .username {
+  background-color: #2d3439;
+  font-size: 22px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  transition: 250ms;
+}
+.picked-me-users .user .username-and-message-wrapper .message {
+  margin-left: 8px;
+  font-size: 16px;
+  line-height: 1;
+  word-wrap: break-word;
+}
+.picked-me-users .empty-alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #657581;
+  font-size: 24px;
+  text-align: center;
+}/*# sourceMappingURL=PickedMeUsers.css.map */

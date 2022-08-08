@@ -3,6 +3,7 @@ import "./Loading.css";
 
 const Loading = ({ valueToWait, setIsLoadingOpen, closeImmediately = false }) => {
   const loadingRef = useRef(undefined);
+
   const displayOffLoading = () => {
     const loadingElement = loadingRef.current;
     if (valueToWait !== null) {

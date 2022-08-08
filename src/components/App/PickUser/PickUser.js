@@ -46,7 +46,7 @@ const PickUser = ({ homeIdFromUrl, currentUser }) => {
 
   useEffect(() => {
     getUserData();
-  });
+  }, []);
 
   return (
     <div className="pick-user">
@@ -54,7 +54,7 @@ const PickUser = ({ homeIdFromUrl, currentUser }) => {
       {isUserExist !== undefined && isUserExist !== false ? (
         <>
           <div className="pick-user-profile-image-and-username">
-            {currentPickUpUser.profileImage === null ? <i className="fa-solid fa-user"></i> : <img src={require("../Home/defaultUser.png")}></img>}
+            {currentPickUpUser.profileImage === null ? <i className="fa-solid fa-user"></i> : <img src={currentPickUpUser.profileImage}></img>}
             <p>{currentPickUpUser.username}</p>
           </div>
           <form id="pick-user-form" spellCheck="false" noValidate onSubmit={(event) => event.preventDefault()}>
