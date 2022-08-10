@@ -5,7 +5,7 @@ import { db } from "../../../../initializeFirebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import createNotification from "../../../../customs/createNotification";
 
-const LoginUser = ({ setCurrentUser }) => {
+const LoginUser = ({ setCurrentUser, restoreDefaultComposition }) => {
   const loginUser = async (event) => {
     const usernameInputElement = event.target.parentElement.querySelector("#login-username");
     const passwordInputElement = event.target.parentElement.querySelector("#login-password");
@@ -45,6 +45,9 @@ const LoginUser = ({ setCurrentUser }) => {
 
   return (
     <div className="login-user">
+      <Button action={() => restoreDefaultComposition()}>
+        <i className="fa-solid fa-angle-right"></i>
+      </Button>
       <form id="login-user-form" spellCheck="false" noValidate onSubmit={(event) => event.preventDefault()}>
         <div className="input-wrapper">
           <input type="text" id="login-username" placeholder="Nazwa użytkownika" required></input>

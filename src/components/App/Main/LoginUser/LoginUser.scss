@@ -2,20 +2,37 @@
   width: auto;
   height: auto;
   background-color: #22272b;
-  padding-top: 150px;
   white-space: nowrap;
   display: flex;
   justify-content: center;
+  position: relative;
+
+  > button {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -75px;
+    right: 25px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 10;
+
+    @media screen and (max-width: 1024px) {
+      display: flex;
+    }
+  }
 
   #login-user-form {
     width: auto;
     max-width: 350px;
     height: auto;
-    background-color: transparent;
+    background-color: #22272b;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     transition: 500ms;
+    align-items: center;
 
     @media screen and (max-width: 1480px) {
       margin-left: -100px;
@@ -27,12 +44,20 @@
       margin-right: 150px;
     }
 
+    @media screen and (max-width: 1024px) {
+      width: 100vw;
+      max-width: unset;
+      margin-left: unset;
+      margin-right: unset;
+    }
+
     .input-wrapper {
       width: auto;
       height: auto;
       background-color: transparent;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
 
       input {
         width: 350px;
@@ -45,6 +70,10 @@
         border-radius: 1000px;
         margin-bottom: 20px;
         order: 2;
+
+        @media screen and (max-width: 375px) {
+          width: 300px;
+        }
 
         &::placeholder {
           transition: 500ms;
@@ -84,6 +113,11 @@
 
     button {
       margin-top: 50px;
+      width: 350px;
+
+      @media screen and (max-width: 375px) {
+        width: 300px;
+      }
     }
   }
 }

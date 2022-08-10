@@ -2,20 +2,37 @@
   width: auto;
   height: auto;
   background-color: #22272b;
-  padding-top: 100px;
   white-space: nowrap;
   display: flex;
   justify-content: center;
+  position: relative;
+}
+.create-user > button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -75px;
+  left: 25px;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .create-user > button {
+    display: flex;
+  }
 }
 .create-user #create-user-form {
   width: auto;
   max-width: 350px;
   height: auto;
-  background-color: transparent;
+  background-color: #22272b;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transition: 500ms;
+  align-items: center;
 }
 @media screen and (max-width: 1480px) {
   .create-user #create-user-form {
@@ -27,6 +44,14 @@
     margin-left: 150px;
   }
 }
+@media screen and (max-width: 1024px) {
+  .create-user #create-user-form {
+    width: 100vw;
+    max-width: unset;
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
 .create-user #create-user-form .input-wrapper {
   width: auto;
   height: auto;
@@ -34,6 +59,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
 }
 .create-user #create-user-form .input-wrapper input {
   width: 350px;
@@ -46,6 +72,11 @@
   border-radius: 1000px;
   margin-bottom: 20px;
   order: 2;
+}
+@media screen and (max-width: 375px) {
+  .create-user #create-user-form .input-wrapper input {
+    width: 300px;
+  }
 }
 .create-user #create-user-form .input-wrapper input::-moz-placeholder {
   -moz-transition: 500ms;
@@ -126,4 +157,10 @@
 }
 .create-user #create-user-form button {
   margin-top: 50px;
+  width: 350px;
+}
+@media screen and (max-width: 375px) {
+  .create-user #create-user-form button {
+    width: 300px;
+  }
 }/*# sourceMappingURL=CreateUser.css.map */

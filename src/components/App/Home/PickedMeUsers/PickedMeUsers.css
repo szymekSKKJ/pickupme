@@ -28,6 +28,13 @@
   align-content: flex-start;
   overflow: auto;
 }
+@media screen and (max-width: 425px) {
+  .picked-me-users {
+    max-height: unset;
+    flex-wrap: unset;
+    align-items: center;
+  }
+}
 .picked-me-users .user {
   width: 400px;
   height: 150px;
@@ -38,6 +45,13 @@
   margin: 12px;
   cursor: pointer;
   transition: 250ms;
+}
+@media screen and (max-width: 425px) {
+  .picked-me-users .user {
+    width: 100%;
+    height: 125px;
+    margin: 12px 0px 12px 0px;
+  }
 }
 .picked-me-users .user:hover {
   background-color: #384147;
@@ -100,11 +114,21 @@
   padding-bottom: 4px;
   transition: 250ms;
 }
+@media screen and (max-width: 425px) {
+  .picked-me-users .user .username-and-message-wrapper .username {
+    font-size: 18px;
+  }
+}
 .picked-me-users .user .username-and-message-wrapper .message {
   margin-left: 8px;
   font-size: 16px;
   line-height: 1;
   word-wrap: break-word;
+}
+@media screen and (max-width: 425px) {
+  .picked-me-users .user .username-and-message-wrapper .message {
+    font-size: 12px;
+  }
 }
 .picked-me-users .empty-alert {
   position: absolute;

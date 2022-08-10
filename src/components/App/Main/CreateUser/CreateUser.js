@@ -6,7 +6,7 @@ import createNotification from "../../../../customs/createNotification";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import signOutUser from "../../../../customs/signOutUser";
 
-const CreateUser = () => {
+const CreateUser = ({ restoreDefaultComposition }) => {
   const isEmpty = (str) => !str.trim().length;
 
   const hasWhiteSpace = (str) => str.indexOf(" ") >= 0;
@@ -82,6 +82,9 @@ const CreateUser = () => {
 
   return (
     <div className="create-user">
+      <Button action={() => restoreDefaultComposition()}>
+        <i className="fa-solid fa-angle-left"></i>
+      </Button>
       <form id="create-user-form" spellCheck="false" noValidate onSubmit={(event) => event.preventDefault()}>
         <div className="input-wrapper">
           <input type="text" id="create-user-username" placeholder="Nazwa użytkownika" required></input>

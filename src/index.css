@@ -31,10 +31,17 @@ body .notification {
   position: fixed;
   top: 0px;
   animation: apearNorification cubic-bezier(0.31, 0.99, 0.66, 1.75) 500ms forwards;
+  z-index: 10000;
 }
 
 body .notification p {
   text-align: center;
   font-size: 24px;
   color: white;
+}
+
+@media screen and (max-width: 425px) {
+  body .notification p {
+    font-size: 18px;
+  }
 }

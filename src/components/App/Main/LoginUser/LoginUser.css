@@ -2,20 +2,37 @@
   width: auto;
   height: auto;
   background-color: #22272b;
-  padding-top: 150px;
   white-space: nowrap;
   display: flex;
   justify-content: center;
+  position: relative;
+}
+.login-user > button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -75px;
+  right: 25px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  z-index: 10;
+}
+@media screen and (max-width: 1024px) {
+  .login-user > button {
+    display: flex;
+  }
 }
 .login-user #login-user-form {
   width: auto;
   max-width: 350px;
   height: auto;
-  background-color: transparent;
+  background-color: #22272b;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transition: 500ms;
+  align-items: center;
 }
 @media screen and (max-width: 1480px) {
   .login-user #login-user-form {
@@ -29,12 +46,21 @@
     margin-right: 150px;
   }
 }
+@media screen and (max-width: 1024px) {
+  .login-user #login-user-form {
+    width: 100vw;
+    max-width: unset;
+    margin-left: unset;
+    margin-right: unset;
+  }
+}
 .login-user #login-user-form .input-wrapper {
   width: auto;
   height: auto;
   background-color: transparent;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 .login-user #login-user-form .input-wrapper input {
   width: 350px;
@@ -47,6 +73,11 @@
   border-radius: 1000px;
   margin-bottom: 20px;
   order: 2;
+}
+@media screen and (max-width: 375px) {
+  .login-user #login-user-form .input-wrapper input {
+    width: 300px;
+  }
 }
 .login-user #login-user-form .input-wrapper input::-moz-placeholder {
   -moz-transition: 500ms;
@@ -94,4 +125,10 @@
 }
 .login-user #login-user-form button {
   margin-top: 50px;
+  width: 350px;
+}
+@media screen and (max-width: 375px) {
+  .login-user #login-user-form button {
+    width: 300px;
+  }
 }/*# sourceMappingURL=LoginUser.css.map */
