@@ -4,9 +4,8 @@ import { db } from "../../../../initializeFirebase";
 import { collection, setDoc, doc, getDocs, query, where } from "firebase/firestore";
 import createNotification from "../../../../customs/createNotification";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import signOutUser from "../../../../customs/signOutUser";
 
-const CreateUser = ({ restoreDefaultComposition }) => {
+const CreateUser = ({ currentUser, restoreDefaultComposition }) => {
   const isEmpty = (str) => !str.trim().length;
 
   const hasWhiteSpace = (str) => str.indexOf(" ") >= 0;
@@ -68,9 +67,11 @@ const CreateUser = ({ restoreDefaultComposition }) => {
       createNotification("Wypełnij wszystkie pola", true);
     } else if (hasAnyInputWhiteSpace !== undefined) {
       hasAnyInputWhiteSpace.focus();
+
       createNotification("Żadne z pól nie może zawierać spacji", true);
     } else if (!formEmailInputElement.value.includes("@")) {
       formEmailInputElement.focus();
+
       createNotification("Pole email jest niepoprawne", true);
     } else if (formPasswordInputElement.value !== formRepeatPasswordInputElement.value) {
       formPasswordInputElement.focus();

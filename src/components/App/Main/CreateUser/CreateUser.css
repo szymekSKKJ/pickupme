@@ -1,11 +1,11 @@
 .create-user {
   width: auto;
   height: auto;
-  background-color: #22272b;
   white-space: nowrap;
   display: flex;
   justify-content: center;
   position: relative;
+  transition: 500ms;
 }
 .create-user > button {
   width: 50px;
@@ -27,7 +27,6 @@
   width: auto;
   max-width: 350px;
   height: auto;
-  background-color: #22272b;
   display: flex;
   flex-direction: column;
   overflow: hidden;

@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { doc, getDoc, onSnapshot } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../initializeFirebase";
 import Main from "./Main/Main";
 import Home from "./Home/Home";
-import CreateUser from "./Main/CreateUser/CreateUser";
-import LoginUser from "./Main/LoginUser/LoginUser";
 import PickUser from "./PickUser/PickUser";
 import LoginOrSigninPage from "./LoginOrSigninPage/LoginOrSigninPage";
 import Loading from "./Loading/Loading";
@@ -51,17 +49,17 @@ const App = () => {
 
   useEffect(() => {
     askUserForNotificationPermission();
-  });
+  }, []);
 
   return (
     <div className="app">
       {isLoadingOpen && (
         <Loading setIsLoadingOpen={setIsLoadingOpen} valueToWait={currentUser} closeImmediately={currentUser !== undefined ? true : false}></Loading>
       )}
-      {isLoadingOpen === false || currentUser === undefined ? (
+      {currentUser !== null ? (
         currentUser === undefined ? (
           homeIdFromUrl === null ? (
-            <Main setCurrentUser={setCurrentUser}></Main>
+            <Main currentUser={currentUser} setCurrentUser={setCurrentUser}></Main>
           ) : (
             <LoginOrSigninPage></LoginOrSigninPage>
           )

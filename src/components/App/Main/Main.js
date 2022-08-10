@@ -2,9 +2,8 @@ import "./Main.css";
 import Button from "../../Button/Button";
 import CreateUser from "./CreateUser/CreateUser";
 import LoginUser from "./LoginUser/LoginUser";
-import { useEffect } from "react";
 
-const Main = ({ setCurrentUser }) => {
+const Main = ({ currentUser, setCurrentUser }) => {
   let isCreateUserShowed = false;
   let isLoginUserShowed = false;
 
@@ -54,16 +53,16 @@ const Main = ({ setCurrentUser }) => {
     }
   };
 
-  useEffect(() => {
-    if (window.innerWidth > 1024) {
-      window.addEventListener("resize", () => restoreDefaultComposition());
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (window.innerWidth > 1024) {
+  //     window.addEventListener("resize", () => restoreDefaultComposition());
+  //   }
+  // }, []);
 
   return (
     <div className="main">
       <div className="main-content">
-        <LoginUser restoreDefaultComposition={restoreDefaultComposition} setCurrentUser={setCurrentUser}></LoginUser>
+        <LoginUser currentUser={currentUser} restoreDefaultComposition={restoreDefaultComposition} setCurrentUser={setCurrentUser}></LoginUser>
         <div className="main-content-wrapper">
           <h1>Pozwól złapać się Twoim bliskim!</h1>
           <p>Nie dopuść do sytuacji gdzie Twoi bliscy nie mogą się z Tobą skontaktować.</p>
@@ -73,7 +72,7 @@ const Main = ({ setCurrentUser }) => {
             <Button action={() => showCreateUser()}>Załóż konto</Button>
           </div>
         </div>
-        <CreateUser restoreDefaultComposition={restoreDefaultComposition}></CreateUser>
+        <CreateUser currentUser={currentUser} restoreDefaultComposition={restoreDefaultComposition}></CreateUser>
       </div>
     </div>
   );
