@@ -2,6 +2,7 @@ import "./Main.css";
 import Button from "../../Button/Button";
 import CreateUser from "./CreateUser/CreateUser";
 import LoginUser from "./LoginUser/LoginUser";
+import { useEffect } from "react";
 
 const Main = ({ currentUser, setCurrentUser }) => {
   let isCreateUserShowed = false;
@@ -53,13 +54,14 @@ const Main = ({ currentUser, setCurrentUser }) => {
     }
   };
 
-  // useEffect(() => {
-  //   if (window.innerWidth > 1024) {
-  //     window.addEventListener("resize", () => restoreDefaultComposition());
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (window.innerWidth > 1024) {
+      window.addEventListener("resize", () => restoreDefaultComposition());
+    }
+  }, []);
 
   return (
+    // Tutaj loading ma być
     <div className="main">
       <div className="main-content">
         <LoginUser currentUser={currentUser} restoreDefaultComposition={restoreDefaultComposition} setCurrentUser={setCurrentUser}></LoginUser>
