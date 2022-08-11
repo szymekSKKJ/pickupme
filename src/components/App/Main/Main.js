@@ -61,7 +61,7 @@ const Main = ({ currentUser, setCurrentUser }) => {
   }, []);
 
   return (
-    // Tutaj loading ma być
+    // Tutaj loading ma być do logowania i tworzenia usera
     <div className="main">
       <div className="main-content">
         <LoginUser currentUser={currentUser} restoreDefaultComposition={restoreDefaultComposition} setCurrentUser={setCurrentUser}></LoginUser>

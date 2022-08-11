@@ -9,60 +9,79 @@ const PickedMeUsers = ({ currentUser, isLinkPopupOpen, setIsLinkPopupOpen }) => 
   const [pickedMeUsers, setPickedMeUsers] = useState(null);
   const [isLoadingOpen, setIsLoadingOpen] = useState(true);
 
-  const removeNotification = async (notificationElement, index) => {
-    const { pickedMeUsers: pickedMeUsersData } = currentUser;
+  const removePick = async (index) => {
+    const { pickedMeUsers, id } = currentUser;
+    const pickedMeUsersLocal = [...pickedMeUsers];
 
-    pickedMeUsersData.splice(index, 1); // For firebase data
-    pickedMeUsers.splice(index, 1); // For component
-    setPickedMeUsers(pickedMeUsers);
+    pickedMeUsersLocal.splice(index, 1);
 
-    await updateDoc(doc(db, "users", currentUser.id), {
-      pickedMeUsers: pickedMeUsersData,
+    await updateDoc(doc(db, "users", id), {
+      pickedMeUsers: pickedMeUsersLocal,
     });
   };
 
   const getPickedMeUsers = async () => {
     const { pickedMeUsers: pickedMeUsersData } = currentUser;
-    const pickedMeUsersLocal = [];
 
-    // If data is empty, get all users, otherwise get only users that picked after first render
-    if (pickedMeUsers === null) {
-      if (pickedMeUsersData.length === 0) {
-        setPickedMeUsers([]);
-      } else {
+    if (pickedMeUsersData.length === 0) {
+      setPickedMeUsers([]);
+    } else {
+      if (pickedMeUsers === null) {
+        const pickedMeUsersLocal = [];
         pickedMeUsersData.forEach(async (user, index, array) => {
-          const { id, message } = user;
-          const docSnap = await getDoc(doc(db, "users", id));
-          const { username, profileImage } = docSnap.data();
+          const { userId, messageId, message } = user;
+          const docSnap = await getDoc(doc(db, "users", userId));
+          const { profileImage, username } = docSnap.data();
+
           pickedMeUsersLocal.push({
+            messageId: messageId,
             message: message,
-            username: username,
             profileImage: profileImage,
+            username: username,
           });
 
           if (index === array.length - 1) {
             setPickedMeUsers(pickedMeUsersLocal);
           }
         });
+      } else if (pickedMeUsersData.length > pickedMeUsers.length) {
+        const pickedMeUsersLocal = [...pickedMeUsers];
+        const { userId, message, messageId } = pickedMeUsersData[pickedMeUsersData.length - 1]; // Prevent getting all users on new pick. Just getting the last one
+        const docSnap = await getDoc(doc(db, "users", userId));
+        const { profileImage, username } = docSnap.data();
+
+        pickedMeUsersLocal.push({
+          messageId: messageId,
+          message: message,
+          profileImage: profileImage,
+          username: username,
+        });
+
+        const notification = new Notification(`${username} zaczepił Cię!`, {
+          body: message,
+          icon: profileImage !== null ? profileImage : require("./defaultUser.png"),
+        });
+
+        setPickedMeUsers(pickedMeUsersLocal);
+      } else if (pickedMeUsersData.length < pickedMeUsers.length) {
+        const pickedMeUsersLocal = [...pickedMeUsers];
+        pickedMeUsers.forEach((oldUser, index) => {
+          const { messageId: messageIdFromOld } = oldUser;
+
+          const isThisPickExist = pickedMeUsersData.some((newUser) => {
+            const { messageId: messageIdFromNew } = newUser;
+            return messageIdFromOld === messageIdFromNew;
+          });
+
+          if (!isThisPickExist) {
+            pickedMeUsersLocal.splice(index, 1);
+            setPickedMeUsers(pickedMeUsersLocal);
+          }
+        });
       }
-    } else if (pickedMeUsersData.length > pickedMeUsers.length) {
-      const { id, message } = pickedMeUsersData[pickedMeUsersData.length - 1];
-      const docSnap = await getDoc(doc(db, "users", id));
-      const { username, profileImage } = docSnap.data();
-
-      const pickedMeUsersCloned = pickedMeUsers.slice();
-      pickedMeUsersCloned.push({
-        message: message,
-        username: username,
-        profileImage: profileImage,
-      });
-      setPickedMeUsers(pickedMeUsersCloned);
-
-      const notification = new Notification(`${username} zaczepił Cię!`, {
-        body: message,
-        icon: profileImage !== null ? profileImage : require("./defaultUser.png"),
-      });
     }
+
+    //console.log(pickedMeUsersData);
   };
 
   useEffect(() => {
@@ -77,7 +96,7 @@ const PickedMeUsers = ({ currentUser, isLinkPopupOpen, setIsLinkPopupOpen }) => 
           pickedMeUsers.map((user, index) => {
             const { username, profileImage, message } = user;
             return (
-              <div className="user" onClick={(event) => removeNotification(event.target, index)}>
+              <div className="user" onClick={(event) => removePick(index)}>
                 {profileImage === null ? <i className="fa-solid fa-user"></i> : <img src={profileImage}></img>}
                 <div className="username-and-message-wrapper">
                   <p className="username">{username}</p>

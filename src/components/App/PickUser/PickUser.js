@@ -11,6 +11,13 @@ const PickUser = ({ homeIdFromUrl, currentUser }) => {
   const [isLoadingOpen, setIsLoadingOpen] = useState(true);
   const currentPickUpUser = isUserExist;
 
+  const guidGenerator = () => {
+    const S4 = function () {
+      return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    };
+    return S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4();
+  };
+
   const isEmpty = (str) => !str.trim().length;
 
   const sendMessage = async (event) => {
@@ -20,7 +27,8 @@ const PickUser = ({ homeIdFromUrl, currentUser }) => {
     if (!isEmpty(textareaElement.value)) {
       await updateDoc(doc(db, "users", homeIdFromUrl), {
         pickedMeUsers: arrayUnion({
-          id: currentUser.id,
+          messageId: guidGenerator(),
+          userId: currentUser.id,
           message: textareaElement.value,
         }),
       });
