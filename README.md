@@ -1,4 +1,4 @@
-# Chat app ([Live](https://pickupme.netlify.app/))
+# Pick up me ([Live](https://pickupme.netlify.app/))
 
 # Getting Started with Create React App
 
